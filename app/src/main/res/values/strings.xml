@@ -1,0 +1,72 @@
+<resources>
+    <!-- Application Name and Version -->
+    <string name="app_name">RDH</string>
+    <string name="app_version_text">Version:</string>
+
+    <!-- Default Customer location -->
+    <string name="Place">KA</string>
+
+    <!-- Excel File -->
+    <string name="excel_out_file_name">rdh.xls</string>
+    <string name="rdh_out_dir_name">OUT</string>
+    <string name="rdh_in_dir_name">IN</string>
+
+    <!-- Data Files -->
+    <string name="data_files_dir_name">DataFiles</string>
+
+    <!-- Help Menu -->
+    <string name="installningar">Inställningar</string>
+    <string name="hjalp">Hjälp</string>
+    <string name="hjalp_titel">Hjälp för ADF-Lift</string>
+    <string name="hjalp_text">Se handboken för RDH som beskriver appens gränssnitt och funktioner. Vid frågor kontakta service desk.</string>
+    <string name="om">Om</string>
+    <string name="om_titel">Om ADF-Lift</string>
+    <string name="om_text">RDH är en applikation för reservdelshantering.</string>
+    <string name="db_version_text">Databasversion:</string>
+
+    <!-- Work Order Menu -->
+    <string name="new_work_order">Ny arbetsorder</string>
+    <string name="search_work_order">Sök arbetsorder</string>
+
+    <!-- Transaction Menu -->
+    <string name="search_transaction">Sök transaktion</string>
+
+    <!-- Database Column Titles -->
+    <string name="WORKORDER_HEAD_WORKORDER_NO">Arbetsorder</string>
+    <string name="WORKORDER_HEAD_WORKORDER_NAME">Namn</string>
+
+    <string name="TRANS_HEAD_TRANS_TYPE">Typ</string>
+    <string name="TRANS_HEAD_WORKORDER_ID">Id</string>
+    <string name="TRANS_HEAD_WORKORDER_NO">Arbetsorder</string>
+    <string name="TRANS_HEAD_ARTICLE_NO">Fbet/Artid</string>
+    <string name="TRANS_HEAD_QUANTITY">Antal</string>
+    <string name="TRANS_HEAD_DATE_TIME">Datum/Tid"</string>
+
+    <!-- BroadCastReceiver DataWedge -->
+    <string name="activity_intent_filter_action">se.cgi.android.rdh.ACTION</string>
+    <string name="datawedge_intent_key_data">com.symbol.datawedge.data_string</string>
+    <string name="datawedge_intent_key_source">com.symbol.datawedge.source</string>
+
+    <!-- Error Messages -->
+    <string name="work_order_no_missing">Arbetsorder är obligatoriskt"</string>
+    <string name="work_order_no_to_large">Arbetsorder får bara innehålla 10 tecken"</string>
+    <string name="work_order_name_missing">Namn är obligatoriskt"</string>
+    <string name="work_order_name_to_large">Namn får bara innehålla 50 tecken"</string>
+    <string name="work_order_has_transactions">Arbetsordern har transaktioner kopplade till sig.\nSänd eller rensa dessa transaktionerna först och försök igen</string>
+
+    <string name="article_no_to_large">Fbet/Artid får bara innehålla 13 tecken"</string>
+    <string name="article_no_missing">Fbet/Artid är obligatoriskt"</string>
+    <string name="article_no_start_rule">Fbet/Artid måste börja på M/F och innehålla siffror!"</string>
+
+    <string name="quantity_to_large">Antal får bara innehålla 9 siffror"</string>
+    <string name="quantity_missing">Antal är obligatoriskt"</string>
+
+    <string name="max_number_of_transactions">Max antal transar uppnått!\nSänd data till PC och rensa transregistret innan du fortsätter</string>
+    <string name="transaction_exist">Transaktioner finns i databasen!\nSänd data till PC och rensa transregistret innan du fortsätter</string>
+
+    <!-- Other Strings -->
+    <string name="save">Spara</string>
+    <string name="delete">Ta bort</string>
+
+
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="se.cgi.android.rdh">
+    <!-- ADF-Lift needs these features -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RDH">
+        <activity
+            android:name=".activities.ExportActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.SettingsMenuActivity" />
+        <activity
+            android:name=".activities.SendActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.SettingsMenuActivity" />
+        <activity
+            android:name=".activities.ImportActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.SettingsMenuActivity" />
+        <activity
+            android:name=".activities.TransactionAddEditActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.SettingsMenuActivity" />
+        <activity
+            android:name=".activities.TransactionListActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.SettingsMenuActivity" />
+        <activity
+            android:name=".activities.ClearAllTransactionsActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.SettingsMenuActivity" />
+        <activity
+            android:name=".activities.SparePartActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.StorageTakeOutListActivity" />
+        <activity
+            android:name=".activities.StorageTakeOutListActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.WorkOrderAddEditActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.WorkOrderListActivity" />
+        <activity
+            android:name=".activities.WorkOrderListActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.SettingsMenuActivity" />
+        <activity
+            android:name=".activities.SettingsMenuActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
