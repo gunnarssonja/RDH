@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -58,6 +59,7 @@ public class SendActivity extends AppCompatActivity {
         btnCreateFile = findViewById(R.id.btn_create_excel_file);
         showNumberOfTrans();
         showNumberOfCreatedRecords(0);
+        tvStatus.setMovementMethod(new ScrollingMovementMethod());
         tvStatus.setText("Sätt handdatorn i dockan och tryck på sänd\n");
         btnCreateFile.setEnabled(true);
     }
