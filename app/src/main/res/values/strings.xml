@@ -7,7 +7,7 @@
     <string name="Place">KA</string>
 
     <!-- Excel File -->
-    <string name="excel_out_file_name">rdh.xls</string>
+    <string name="excel_out_file_name">reservdelsuttag.xls</string>
     <string name="rdh_out_dir_name">OUT</string>
     <string name="rdh_in_dir_name">IN</string>
 
@@ -17,10 +17,10 @@
     <!-- Help Menu -->
     <string name="installningar">Inställningar</string>
     <string name="hjalp">Hjälp</string>
-    <string name="hjalp_titel">Hjälp för ADF-Lift</string>
+    <string name="hjalp_titel">Hjälp för RDH</string>
     <string name="hjalp_text">Se handboken för RDH som beskriver appens gränssnitt och funktioner. Vid frågor kontakta service desk.</string>
     <string name="om">Om</string>
-    <string name="om_titel">Om ADF-Lift</string>
+    <string name="om_titel">Om RDH</string>
     <string name="om_text">RDH är en applikation för reservdelshantering.</string>
     <string name="db_version_text">Databasversion:</string>
 

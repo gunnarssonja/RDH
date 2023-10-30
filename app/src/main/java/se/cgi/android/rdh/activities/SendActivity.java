@@ -222,6 +222,7 @@ public class SendActivity extends AppCompatActivity {
 
     public void clear_all_transactions() {
         if (numberOfTransRecords > 0) {
+            /*** RDH-33 - Customer will not have this question right now
             AlertDialog.Builder builder = new AlertDialog.Builder(SendActivity.this)
                     .setTitle("Filen är skapad")
                     .setMessage("Vill du rensa bort alla transaktionsposter?\n\nSvara JA om du skall skicka filen till PC och NEJ om du skall fortsätta samla data.")
@@ -242,6 +243,11 @@ public class SendActivity extends AppCompatActivity {
 
             AlertDialog alert = builder.create();
             alert.show();
+             ***/
+
+            dbHelper.deleteAllTrans();
+            showNumberOfTrans();
+            tvStatus.append("Alla transar/poster rensade\n");
         }
     }
 
