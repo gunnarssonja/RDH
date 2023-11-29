@@ -20,6 +20,7 @@ import androidx.core.app.NavUtils;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -276,6 +277,7 @@ public class SparePartActivity extends BcrActivity {
                 listData.add("Fbet: " + t.getArticleNo() + ", " + "Antal: " + t.getQuantity());
             }
         }
+        Collections.reverse(listData);
         listAdapter.notifyDataSetChanged();
     }
 
