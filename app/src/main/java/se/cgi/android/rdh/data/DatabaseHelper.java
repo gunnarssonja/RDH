@@ -254,16 +254,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Get all WorkOrder's by WorkOrderName
+     * Get all WorkOrder's by WorkOrderName and WorkOrderNo
      */
-    public List<WorkOrder> getAllWorkOrderListByWorkOrderName() {
+    public List<WorkOrder> getAllWorkOrderListByWorkOrderNameAndWorkOrderNo() {
         List<WorkOrder> workOrderList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT " +  WORKORDER_KEY_ID + ", "
                 + WORKORDER_KEY_WORKORDER_NO + ", "
                 + WORKORDER_KEY_WORKORDER_NAME + " FROM "
-                + TABLE_WORKORDER + " ORDER BY " + WORKORDER_KEY_WORKORDER_NAME, null);
+                + TABLE_WORKORDER + " ORDER BY " + WORKORDER_KEY_WORKORDER_NAME + ", " + WORKORDER_KEY_WORKORDER_NO, null);
 
         if (cursor != null) {
             if (cursor.moveToFirst()) {

@@ -27,11 +27,10 @@
         <activity
             android:name=".activities.TransactionAddEditActivity"
             android:exported="true"
-            android:parentActivityName=".activities.SettingsMenuActivity" />
+            android:parentActivityName=".activities.TransactionListActivity" />
         <activity
             android:name=".activities.TransactionListActivity"
             android:exported="true"
-            android:launchMode="singleTop"
             android:parentActivityName=".activities.SettingsMenuActivity" />
         <activity
             android:name=".activities.ClearAllTransactionsActivity"
@@ -44,7 +43,6 @@
         <activity
             android:name=".activities.StorageTakeOutListActivity"
             android:exported="true"
-            android:launchMode="singleTop"
             android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.WorkOrderAddEditActivity"
@@ -53,7 +51,6 @@
         <activity
             android:name=".activities.WorkOrderListActivity"
             android:exported="true"
-            android:launchMode="singleTop"
             android:parentActivityName=".activities.SettingsMenuActivity" />
         <activity
             android:name=".activities.SettingsMenuActivity"

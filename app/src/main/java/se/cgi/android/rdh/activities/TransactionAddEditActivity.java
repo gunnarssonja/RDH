@@ -3,7 +3,6 @@ package se.cgi.android.rdh.activities;
 import static se.cgi.android.rdh.data.DatabaseHelper.NEW_RECORD;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,7 +24,6 @@ import se.cgi.android.rdh.R;
 import se.cgi.android.rdh.data.DatabaseHelper;
 import se.cgi.android.rdh.models.Trans;
 import se.cgi.android.rdh.models.WorkOrder;
-import se.cgi.android.rdh.utils.Utils;
 
 /***
  * TransactionAddEditActivity - Activity class for add, update and delete of transactions.
@@ -37,7 +35,7 @@ public class TransactionAddEditActivity extends NonBcrActivity {
     private static final String TAG = TransactionAddEditActivity.class.getSimpleName();
     private DatabaseHelper dbHelper;
     private int id, workOrderId;
-    private EditText etTranstType, etWorkOrderNo, etArticleNo, etQuantity, etDateTime;
+    private EditText etTransType, etWorkOrderNo, etArticleNo, etQuantity, etDateTime;
     private TextInputLayout tilTransType, tilWorkOrderNo, tilArticleNo, tilQuantity, tilDateTime;
     private String action;
 
@@ -52,7 +50,7 @@ public class TransactionAddEditActivity extends NonBcrActivity {
         // Get singleton instance of database
         dbHelper = DatabaseHelper.getInstance(this);
 
-        etTranstType = findViewById(R.id.et_trans_type);
+        etTransType = findViewById(R.id.et_trans_type);
         etWorkOrderNo = findViewById(R.id.et_trans_work_order_no);
         etArticleNo = findViewById(R.id.et_trans_article_no);
         etQuantity = findViewById(R.id.et_trans_quantity);
@@ -74,7 +72,7 @@ public class TransactionAddEditActivity extends NonBcrActivity {
         //etArticleNo.addTextChangedListener(new TransactionAddEditActivity.ValidateTextWatcher(etArticleNo));
 
         if ("edit".equals(action)) {
-            etTranstType.setEnabled(false);
+            etTransType.setEnabled(false);
             etWorkOrderNo.setEnabled(false);
             etArticleNo.setEnabled(false);
             etQuantity.setEnabled(false);
@@ -108,7 +106,9 @@ public class TransactionAddEditActivity extends NonBcrActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 dbHelper.deleteTransById(id);
                                 Intent intent = new Intent(TransactionAddEditActivity.this, TransactionListActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
+                                finish();
                             }
                         })
                         .setNegativeButton("Nej", new DialogInterface.OnClickListener() {
@@ -129,8 +129,8 @@ public class TransactionAddEditActivity extends NonBcrActivity {
         if (getIntent().hasExtra("trans_id")){
             action = getIntent().getStringExtra("action");
             id = getIntent().getIntExtra("trans_id", 0) ;
-            etTranstType.setText(getIntent().getStringExtra("trans_type"));
-            workOrderId = getIntent().getIntExtra("trans_work_order_id", 0); // TODO: Kan ev tas bort
+            etTransType.setText(getIntent().getStringExtra("trans_type"));
+            workOrderId = getIntent().getIntExtra("trans_work_order_id", 0);
             etWorkOrderNo.setText(getIntent().getStringExtra("trans_work_order_no"));
             etArticleNo.setText(getIntent().getStringExtra("trans_article_no"));
             etQuantity.setText(String.valueOf(getIntent().getIntExtra("trans_quantity", 0)));
@@ -204,7 +204,7 @@ public class TransactionAddEditActivity extends NonBcrActivity {
         try {
             Trans trans = new Trans();
             trans.setId(id);
-            trans.setTransType(String.valueOf(etTranstType.getText()));
+            trans.setTransType(String.valueOf(etTransType.getText()));
             trans.setWorkOrderId(workOrderId);
             trans.setWorkOrderNo(String.valueOf(etWorkOrderNo.getText()));
             trans.setArticleNo(String.valueOf(etArticleNo.getText()));
@@ -212,7 +212,9 @@ public class TransactionAddEditActivity extends NonBcrActivity {
             trans.setDateTime(String.valueOf(etDateTime.getText()));
             dbHelper.updateTrans(trans);
             Intent intent = new Intent(TransactionAddEditActivity.this, TransactionListActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+            finish();
         } catch(Exception e) {
             handleException(e);
         }
