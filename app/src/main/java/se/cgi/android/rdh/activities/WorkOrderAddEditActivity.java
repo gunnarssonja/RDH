@@ -22,7 +22,6 @@ import java.util.Objects;
 
 import se.cgi.android.rdh.R;
 import se.cgi.android.rdh.data.DatabaseHelper;
-import se.cgi.android.rdh.models.Trans;
 import se.cgi.android.rdh.models.WorkOrder;
 
 /***
@@ -39,10 +38,11 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
     private TextInputLayout tilWorkOrderNo, tilWorkOrderName;
     private String action;
     private String comingFrom;
+    private Button btnSave;
+    private Button btnDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Button btnSave;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_order_add_edit);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
@@ -57,7 +57,7 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
         tilWorkOrderName = findViewById(R.id.til_work_order_name);
 
         btnSave = findViewById(R.id.btn_save);
-        Button btn_delete = findViewById(R.id.btn_delete);
+        btnDelete = findViewById(R.id.btn_delete);
 
         getAndSetIntentData();
 
@@ -89,7 +89,7 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
             }
         });
 
-        btn_delete.setOnClickListener(new View.OnClickListener() {
+        btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (dbHelper.checkIfWorkOrderTransExists(String.valueOf(etWorkOrderNo.getText()))) {
@@ -107,7 +107,9 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 dbHelper.deleteWorkOrderById(id);
                                 Intent intent = new Intent(WorkOrderAddEditActivity.this, WorkOrderListActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
+                                finish();
                             }
                         })
                         .setNegativeButton("Nej", new DialogInterface.OnClickListener() {
@@ -134,6 +136,7 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
         } else {  // Add - from menu "Ny arbetsorder"
             action = getIntent().getStringExtra("action");
             comingFrom = getIntent().getStringExtra("comingFrom");
+            btnDelete.setEnabled(false);
             etWorkOrderNo.requestFocus();
         }
     }
@@ -213,11 +216,16 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
             workOrder.setWorkOrderName(String.valueOf(etWorkOrderName.getText()));
             dbHelper.createWorkOrder(workOrder);
             Intent intent;
-            if (comingFrom.equals("StorageTakeOutActivity"))
+            if (comingFrom.equals("StorageTakeOutActivity")) {
                 intent = new Intent(WorkOrderAddEditActivity.this, StorageTakeOutListActivity.class);
-            else
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            }
+            else {
                 intent = new Intent(WorkOrderAddEditActivity.this, WorkOrderListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            }
             startActivity(intent);
+            finish();
         } catch(Exception e){
             handleException(e);
         }
@@ -232,7 +240,9 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
             workOrder.setWorkOrderName(String.valueOf(etWorkOrderName.getText()));
             dbHelper.updateWorkOrder(workOrder);
             Intent intent = new Intent(WorkOrderAddEditActivity.this, WorkOrderListActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+            finish();
         } catch(Exception e) {
             handleException(e);
         }

@@ -41,7 +41,7 @@ public class WorkOrderListActivity extends NonBcrActivity  implements WorkOrderR
         setTitle("Arbetsordrar");
 
         DatabaseHelper dbHelper = DatabaseHelper.getInstance(this);
-        workOrderList = dbHelper.getAllWorkOrderListByWorkOrderName();
+        workOrderList = dbHelper.getAllWorkOrderListByWorkOrderNameAndWorkOrderNo();
 
         recyclerView = findViewById(R.id.rv_workOrderList);
         recyclerView.setHasFixedSize(true);
@@ -99,7 +99,7 @@ public class WorkOrderListActivity extends NonBcrActivity  implements WorkOrderR
         startActivity(intent);
     }
 
-    // Needed to navigate correct, back to parent menu, when coming from Maintenance (Control) activity
+    // Needed to navigate correct, back to parent menu
     @Override
     public void onBackPressed()
     {

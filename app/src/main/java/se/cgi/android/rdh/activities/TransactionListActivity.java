@@ -95,7 +95,7 @@ public class TransactionListActivity extends NonBcrActivity implements Transacti
         startActivity(intent);
     }
 
-    // Needed to navigate correct, back to parent menu, when coming from Maintenance (Control) activity
+    // Needed to navigate correct, back to parent menu
     @Override
     public void onBackPressed()
     {

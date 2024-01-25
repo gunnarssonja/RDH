@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.core.app.NavUtils;
@@ -51,13 +52,14 @@ public class SparePartActivity extends BcrActivity {
     private Button btnSave;
     private EditText etWorkOrderName, etArticleNo, etQuantity;
     private TextInputLayout tilWorkOrderName, tilArticleNo, tilQuantity;
+    private TextView tvSavedRecords;
+    private ListView lv_status_saved_records;
     private List<Trans> transList = new ArrayList<>();
     private ArrayList<String> listData = new ArrayList<>();
     private ArrayAdapter<String> listAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ListView lv_status_saved_records;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spare_part);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
@@ -79,12 +81,12 @@ public class SparePartActivity extends BcrActivity {
         tilWorkOrderName = findViewById(R.id.til_spare_part_work_order_name);
         tilArticleNo = findViewById(R.id.til_spare_part_article_no);
         tilQuantity = findViewById(R.id.til_spare_part_quantity);
-
         etWorkOrderName = findViewById(R.id.et_spare_part_work_order_name);
         etArticleNo = findViewById(R.id.et_spare_part_article_no);
         etQuantity = findViewById(R.id.et_spare_part_quantity);
-
         btnSave = findViewById(R.id.btn_spare_part_save);
+        lv_status_saved_records = findViewById(R.id.lv_status_saved_records);
+        tvSavedRecords = findViewById(R.id.tv_status_saved_records);
 
         etWorkOrderName.setText(workOrderName);
         etWorkOrderName.setEnabled(false);
@@ -93,7 +95,6 @@ public class SparePartActivity extends BcrActivity {
         etArticleNo.addTextChangedListener(new SparePartActivity.ValidationTextWatcher(etArticleNo));
         etQuantity.addTextChangedListener(new SparePartActivity.ValidationTextWatcher(etQuantity));
 
-        lv_status_saved_records = findViewById(R.id.lv_status_saved_records);
         listAdapter = new ArrayAdapter<>(SparePartActivity.this, android.R.layout.simple_list_item_1, listData);
         lv_status_saved_records.setAdapter(listAdapter);
 
@@ -279,6 +280,7 @@ public class SparePartActivity extends BcrActivity {
         }
         Collections.reverse(listData);
         listAdapter.notifyDataSetChanged();
+        tvSavedRecords.setText("Sparade poster (" + listData.size() + "):");
     }
 
     // Handles different types of barcode information
