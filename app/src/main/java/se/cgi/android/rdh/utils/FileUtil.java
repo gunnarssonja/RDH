@@ -20,8 +20,8 @@ public final class FileUtil {
     // Checks if external storage is writable
     public static boolean checkIfExternalStorageWritable(Context context) {
         if (isExternalStorageWritable() == false) {
-            Toast.makeText(context, "Error: Externt minne saknas eller ej skrivbar!", Toast.LENGTH_LONG).show();
-            Logger.e(TAG, "Error: Externt minne saknas eller ej skrivbar!");
+            Toast.makeText(context, "Error: Externt minne saknas eller ej skrivbar", Toast.LENGTH_LONG).show();
+            Logger.e(TAG, "Error: Externt minne saknas eller ej skrivbar");
             return false;
         }
         return true;
@@ -39,24 +39,24 @@ public final class FileUtil {
         dataFilesDir = new File(context.getExternalFilesDir(null), File.separator + context.getString(R.string.data_files_dir_name));
         if (!dataFilesDir.exists()) {
             if (!dataFilesDir.mkdirs()) {
-                Toast.makeText(context, "Error: Katalogen för databasfiler kan ej skapas!", Toast.LENGTH_LONG).show();
-                Logger.e(TAG, "Error: Katalogen för databasfiler kan ej skapas!");
+                Toast.makeText(context, "Error: Katalogen för databasfiler kan ej skapas", Toast.LENGTH_LONG).show();
+                Logger.e(TAG, "Error: Katalogen för databasfiler kan ej skapas");
             }
         }
 
         outDir = new File(context.getExternalFilesDir(null), File.separator + context.getString(R.string.rdh_out_dir_name));
         if (!outDir.exists()) {
             if (!outDir.mkdirs()) {
-                Toast.makeText(context, "Error: Katalogen för UT-filer kan ej skapas!", Toast.LENGTH_LONG).show();
-                Logger.e(TAG, "Error: Katalogen för UT-filer kan ej skapas!");
+                Toast.makeText(context, "Error: Katalogen för UT-filer kan ej skapas", Toast.LENGTH_LONG).show();
+                Logger.e(TAG, "Error: Katalogen för UT-filer kan ej skapas");
             }
         }
 
         inDir = new File(context.getExternalFilesDir(null), File.separator + context.getString(R.string.rdh_in_dir_name));
         if (!inDir.exists()) {
             if (!inDir.mkdirs()) {
-                Toast.makeText(context, "Error: Katalogen för IN-filer kan ej skapas!", Toast.LENGTH_LONG).show();
-                Logger.e(TAG, "Error: Katalogen för UT-filer kan ej skapas!");
+                Toast.makeText(context, "Error: Katalogen för IN-filer kan ej skapas", Toast.LENGTH_LONG).show();
+                Logger.e(TAG, "Error: Katalogen för UT-filer kan ej skapas");
             }
         }
     }

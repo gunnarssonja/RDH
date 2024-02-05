@@ -60,7 +60,7 @@ public class ClearAllTransactionsActivity extends NonBcrActivity {
             AlertDialog alert = builder.create();
             alert.show();
         } else {
-            Toast.makeText(getApplicationContext(), "Det finns inga poster att rensa!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Det finns inga poster att rensa", Toast.LENGTH_LONG).show();
         }
     }
 

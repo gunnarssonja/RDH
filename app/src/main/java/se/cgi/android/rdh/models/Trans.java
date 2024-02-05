@@ -91,22 +91,22 @@ public class Trans {
         try {
             // Check if null or empty
             if (this.transType == null || this.transType.equals("")) {
-                throw new Exception("Transaktionstyp saknas!");
+                throw new Exception("Transaktionstyp saknas");
             }
             if (this.workOrderId == 0 || this.workOrderId == -1) {
-                throw new Exception("Arbetsorderid saknas!");
+                throw new Exception("Arbetsorderid saknas");
             }
             if (this.workOrderNo == null || this.workOrderNo.equals("")) {
-                throw new Exception("Arbetsorder saknas!");
+                throw new Exception("Arbetsorder saknas");
             }
             if (this.articleNo == null || this.articleNo.equals("")) {
-                throw new Exception("Artikel/Fbet saknas!");
+                throw new Exception("Artikel/Fbet saknas");
             }
             if (this.quantity == 0 || this.quantity == -1) {
-                throw new Exception("Antal saknas!");
+                throw new Exception("Antal saknas");
             }
             if (this.dateTime == null || this.dateTime.equals("")) {
-                throw new Exception("Datum och tid saknas!");
+                throw new Exception("Datum och tid saknas");
             }
         }
         catch(Exception e) {

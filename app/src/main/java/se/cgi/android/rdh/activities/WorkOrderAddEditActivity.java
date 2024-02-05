@@ -204,7 +204,7 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
 
     private boolean addWorkOrder() {
         if (dbHelper.checkIfWorkOrderExists(String.valueOf(etWorkOrderNo.getText()))) {
-            tilWorkOrderNo.setError("Arbetsorder finns redan i databasen!");
+            tilWorkOrderNo.setError("Arbetsorder finns redan i databasen");
             etWorkOrderNo.requestFocus();
             return false;
         }

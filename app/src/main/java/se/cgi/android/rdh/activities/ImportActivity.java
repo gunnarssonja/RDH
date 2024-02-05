@@ -128,16 +128,16 @@ public class ImportActivity extends AppCompatActivity {
             dataFilesDir = new File(ImportActivity.this.getExternalFilesDir(null), File.separator + getString(R.string.data_files_dir_name));
             if (!dataFilesDir.exists()) {
                 if (!dataFilesDir.mkdirs()) {
-                    Toast.makeText(getApplicationContext(), "Error: Katalogen för databasfiler kan ej skapas!", Toast.LENGTH_LONG).show();
-                    Logger.e(TAG, "Error: Katalogen för databasfiler kan ej skapas!");
+                    Toast.makeText(getApplicationContext(), "Error: Katalogen för databasfiler kan ej skapas", Toast.LENGTH_LONG).show();
+                    Logger.e(TAG, "Error: Katalogen för databasfiler kan ej skapas");
                     return false;
                 }
             }
 
             dataFile = new File(ImportActivity.this.getExternalFilesDir(null), File.separator + getString(R.string.data_files_dir_name) + File.separator + file);
             if (!dataFile.exists()) {
-                Toast.makeText(getApplicationContext(), "Error: Filen " + file + " saknas i katalogen för databasfiler!", Toast.LENGTH_LONG).show();
-                Logger.e(TAG, "Error: Filen " + file + " saknas i katalogen för databasfiler!");
+                Toast.makeText(getApplicationContext(), "Error: Filen " + file + " saknas i katalogen för databasfiler", Toast.LENGTH_LONG).show();
+                Logger.e(TAG, "Error: Filen " + file + " saknas i katalogen för databasfiler");
                 return false;
             }
         } catch (Exception e) {
@@ -149,8 +149,8 @@ public class ImportActivity extends AppCompatActivity {
             // Open file
             inStream = new FileInputStream(dataFile);
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "Error: Fel vid öppning av filen " + file + "!", Toast.LENGTH_SHORT).show();
-            Logger.e(TAG, "Error: Fel vid öppning av filen " + file + "!");
+            Toast.makeText(getApplicationContext(), "Error: Fel vid öppning av filen " + file, Toast.LENGTH_SHORT).show();
+            Logger.e(TAG, "Error: Fel vid öppning av filen " + file);
             return false;
         }
 
@@ -181,7 +181,7 @@ public class ImportActivity extends AppCompatActivity {
                 line = replaceCharacters(line);
                 String[] columns = line.split("\t");
                 if (columns.length != 2) {
-                    Logger.e(TAG, "Hoppar över felaktig CSV rad!");
+                    Logger.e(TAG, "Hoppar över felaktig CSV rad");
                     continue;
                 }
 
@@ -221,8 +221,8 @@ public class ImportActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Inläsning klar", Toast.LENGTH_SHORT).show();
             Logger.d(TAG, "Inläsning klar");
         } else {
-            Toast.makeText(getApplicationContext(), "Error: Felaktig inläsning av ARBETSORDER!", Toast.LENGTH_SHORT).show();
-            Logger.e(TAG, "Error: Felaktig inläsning av ARBETSORDER!");
+            Toast.makeText(getApplicationContext(), "Error: Felaktig inläsning av ARBETSORDER", Toast.LENGTH_SHORT).show();
+            Logger.e(TAG, "Error: Felaktig inläsning av ARBETSORDER");
         }
     }
 

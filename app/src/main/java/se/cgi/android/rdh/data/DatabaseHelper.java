@@ -148,8 +148,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.insertOrThrow(TABLE_WORKORDER, null, cv);
             db.setTransactionSuccessful();
         } catch (Exception e) {
-            Logger.e(TAG, "Error: Fel vid skapande av arbetsorder post!");
-            throw new Exception("Error: Fel vid skapande av arbetsorder post!");
+            Logger.e(TAG, "Error: Fel vid skapande av arbetsorder post");
+            throw new Exception("Error: Fel vid skapande av arbetsorder post");
         } finally {
             db.endTransaction();
         }
@@ -189,7 +189,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.delete(TABLE_WORKORDER, null, null);
             db.setTransactionSuccessful();
         } catch (Exception e) {
-            Logger.e(TAG, "Error: Fel vid borttag av arbetsorder!");
+            Logger.e(TAG, "Error: Fel vid borttag av arbetsorder");
         } finally {
             db.endTransaction();
         }
@@ -304,7 +304,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void createTrans(Trans trans) {
         // Opens the database for writing
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues(8);
+        ContentValues cv = new ContentValues(6);
         cv.put(TRANS_KEY_TRANS_TYPE, trans.getTransType());
         cv.put(TRANS_KEY_WORKORDER_ID, trans.getWorkOrderId());
         cv.put(TRANS_KEY_WORKORDER_NO, trans.getWorkOrderNo());
@@ -394,7 +394,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.delete(TABLE_TRANS, null, null);
             db.setTransactionSuccessful();
         } catch (Exception e) {
-            Logger.e(TAG, "Error: Fel vid borttag av Transposter!");
+            Logger.e(TAG, "Error: Fel vid borttag av Transposter");
         } finally {
             db.endTransaction();
         }
