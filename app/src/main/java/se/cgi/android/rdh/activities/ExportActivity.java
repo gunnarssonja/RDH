@@ -126,8 +126,8 @@ public class ExportActivity extends AppCompatActivity {
             dataFilesDir = new File(ExportActivity.this.getExternalFilesDir(null), File.separator + getString(R.string.data_files_dir_name));
             if (!dataFilesDir.exists()) {
                 if (!dataFilesDir.mkdirs()) {
-                    Toast.makeText(getApplicationContext(), "Error: Katalogen för databasfiler kan ej skapas!", Toast.LENGTH_LONG).show();
-                    Logger.e(TAG, "Error: Katalogen för databasfiler kan ej skapas!");
+                    Toast.makeText(getApplicationContext(), "Error: Katalogen för databasfiler kan ej skapas", Toast.LENGTH_LONG).show();
+                    Logger.e(TAG, "Error: Katalogen för databasfiler kan ej skapas");
                     return false;
                 }
             }
@@ -164,8 +164,8 @@ public class ExportActivity extends AppCompatActivity {
             // Open file
             outputStream = new FileOutputStream(dataFile);
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "Error: Fel vid öppning av filen " + file + "!", Toast.LENGTH_SHORT).show();
-            Logger.e(TAG, "Error: Fel vid öppning av filen " + file + "!");
+            Toast.makeText(getApplicationContext(), "Error: Fel vid öppning av filen " + file, Toast.LENGTH_SHORT).show();
+            Logger.e(TAG, "Error: Fel vid öppning av filen " + file);
             return false;
         }
 
@@ -211,8 +211,8 @@ public class ExportActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Export klar", Toast.LENGTH_SHORT).show();
             Logger.d(TAG, "Export klar");
         } else {
-            Toast.makeText(getApplicationContext(), "Error: Fel vid export av ARBETSORDER!", Toast.LENGTH_SHORT).show();
-            Logger.e(TAG, "Error: Fel vid export av ARBETSORDER!");
+            Toast.makeText(getApplicationContext(), "Error: Fel vid export av ARBETSORDER", Toast.LENGTH_SHORT).show();
+            Logger.e(TAG, "Error: Fel vid export av ARBETSORDER");
         }
     }
 }

@@ -83,8 +83,8 @@ public class SendActivity extends AppCompatActivity {
                 outDir = new File(SendActivity.this.getExternalFilesDir(null), File.separator + getString(R.string.rdh_out_dir_name));
                 if (!outDir.exists()) {
                     if (!outDir.mkdirs()) {
-                        Toast.makeText(getApplicationContext(), "Error: Katalogen för Excel-filer kan ej skapas!", Toast.LENGTH_LONG).show();
-                        Logger.e(TAG, "Error: Katalogen för Excel-filer kan ej skapas!");
+                        Toast.makeText(getApplicationContext(), "Error: Katalogen för Excel-filer kan ej skapas", Toast.LENGTH_LONG).show();
+                        Logger.e(TAG, "Error: Katalogen för Excel-filer kan ej skapas");
                         return;
                     }
                 }
@@ -100,8 +100,8 @@ public class SendActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     if (!excelFile.delete()) {
-                                        Toast.makeText(getApplicationContext(), "Error: Excel-filen kan ej raderas!", Toast.LENGTH_LONG).show();
-                                        Logger.e(TAG, "Error: Excel-filen kan ej raderas!");
+                                        Toast.makeText(getApplicationContext(), "Error: Excel-filen kan ej raderas", Toast.LENGTH_LONG).show();
+                                        Logger.e(TAG, "Error: Excel-filen kan ej raderas");
                                         return;
                                     }
                                     btnCreateFile.setEnabled(false);
@@ -126,7 +126,7 @@ public class SendActivity extends AppCompatActivity {
                 Logger.e(TAG, "Error: " +  e.getMessage());
             }
         } else {
-            Toast.makeText(getApplicationContext(), "Det finns inga poster att skriva till filen!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Det finns inga poster att skriva till filen", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -278,8 +278,8 @@ public class SendActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     if (!excelFile.delete()) {
-                                        Toast.makeText(getApplicationContext(), "Error: Excel-filen kan ej raderas!", Toast.LENGTH_LONG).show();
-                                        Logger.e(TAG, "Error: Excel-filen kan ej raderas!");
+                                        Toast.makeText(getApplicationContext(), "Error: Excel-filen kan ej raderas", Toast.LENGTH_LONG).show();
+                                        Logger.e(TAG, "Error: Excel-filen kan ej raderas");
                                     } else {
                                         Toast.makeText(getBaseContext(), "Filen är borttagen", Toast.LENGTH_LONG).show();
                                     }

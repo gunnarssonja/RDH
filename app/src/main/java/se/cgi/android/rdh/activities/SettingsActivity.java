@@ -70,7 +70,7 @@ public class SettingsActivity extends NonBcrActivity {
     private boolean validateMandatoryFields() {
         // Validate Place
         if (TextUtils.isEmpty(String.valueOf(et_place.getText()).trim())) {
-            til_place.setError("Plats är obligatorisk!");
+            til_place.setError("Plats är obligatorisk");
             til_place.requestFocus();
             return false;
         } else if (et_place.length() > 2) {

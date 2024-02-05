@@ -48,18 +48,18 @@
     <string name="datawedge_intent_key_source">com.symbol.datawedge.source</string>
 
     <!-- Error Messages -->
-    <string name="work_order_no_missing">Arbetsorder är obligatoriskt"</string>
-    <string name="work_order_no_to_large">Arbetsorder får bara innehålla 10 tecken"</string>
-    <string name="work_order_name_missing">Namn är obligatoriskt"</string>
-    <string name="work_order_name_to_large">Namn får bara innehålla 50 tecken"</string>
+    <string name="work_order_no_missing">Arbetsorder är obligatoriskt</string>
+    <string name="work_order_no_to_large">Arbetsorder får bara innehålla 10 tecken</string>
+    <string name="work_order_name_missing">Namn är obligatoriskt</string>
+    <string name="work_order_name_to_large">Namn får bara innehålla 50 tecken</string>
     <string name="work_order_has_transactions">Arbetsordern har transaktioner kopplade till sig.\nSänd eller rensa dessa transaktionerna först och försök igen</string>
 
-    <string name="article_no_to_large">Fbet/Artid får bara innehålla 13 tecken"</string>
-    <string name="article_no_missing">Fbet/Artid är obligatoriskt"</string>
-    <string name="article_no_start_rule">Fbet/Artid måste börja på M/F och innehålla siffror!"</string>
+    <string name="article_no_to_large">Fbet/Artid får bara innehålla 13 tecken</string>
+    <string name="article_no_missing">Fbet/Artid är obligatoriskt</string>
+    <string name="article_no_start_rule">Fbet/Artid måste börja på M/F och innehålla siffror</string>
 
-    <string name="quantity_to_large">Antal får bara innehålla 9 siffror"</string>
-    <string name="quantity_missing">Antal är obligatoriskt"</string>
+    <string name="quantity_to_large">Antal får bara innehålla 9 siffror</string>
+    <string name="quantity_missing">Antal är obligatoriskt</string>
 
     <string name="max_number_of_transactions">Max antal transar uppnått!\nSänd data till PC och rensa transregistret innan du fortsätter</string>
     <string name="transaction_exist">Transaktioner finns i databasen!\nSänd data till PC och rensa transregistret innan du fortsätter</string>
