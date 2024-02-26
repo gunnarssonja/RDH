@@ -17,6 +17,7 @@ import java.io.File;
 
 import se.cgi.android.rdh.BuildConfig;
 import se.cgi.android.rdh.R;
+import se.cgi.android.rdh.data.DatabaseHelper;
 import se.cgi.android.rdh.utils.AppPreference;
 import se.cgi.android.rdh.utils.FileUtil;
 
@@ -141,9 +142,9 @@ public class MainActivity extends NonBcrActivity {
         } else if(item.getItemId() == R.id.about){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.om_titel))
-                    .setMessage(getString(R.string.app_version_text) + " " + versionName + " " + buildVariant + "\n\n" +
-                            getString(R.string.om_text) + "\n\n ") //+
-                    //getString(R.string.db_version_text) + " " + DatabaseHelper.DATABASE_VERSION)
+                    .setMessage((getString(R.string.app_version_text) + " " + versionName + " " + buildVariant + "\n\n" +
+                            getString(R.string.om_text) + "\n\n") +
+                    getString(R.string.db_version_text) + " " + DatabaseHelper.DATABASE_VERSION)
                     .setCancelable(false)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {}
