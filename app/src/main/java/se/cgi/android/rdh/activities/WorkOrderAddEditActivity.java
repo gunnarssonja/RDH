@@ -46,7 +46,6 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_order_add_edit);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-        setTitle("Hantera Arbetsorder");
 
         // Get singleton instance of database
         dbHelper = DatabaseHelper.getInstance(this);
@@ -60,6 +59,12 @@ public class WorkOrderAddEditActivity extends NonBcrActivity {
         btnDelete = findViewById(R.id.btn_delete);
 
         getAndSetIntentData();
+
+        if ("edit".equals(action)) {
+            setTitle("Hantera Arbetsorder");
+        } else {
+            setTitle("Ny Arbetsorder");
+        }
 
         etWorkOrderNo.addTextChangedListener(new ValidateTextWatcher(etWorkOrderNo));
         etWorkOrderName.addTextChangedListener(new ValidateTextWatcher(etWorkOrderName));
