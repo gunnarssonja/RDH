@@ -55,7 +55,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/TRANS_HEAD_ARTICLE_NO"
-                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
